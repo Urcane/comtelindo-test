@@ -18,18 +18,70 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
-        </style>
+            </style>
 
+        <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
         {{-- Library CSS --}}
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">     
+        {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"> --}}
+        <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables_themeroller.css">
+        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            
+        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center py-4 sm:pt-0">
+            <div class="table-responsive">
+            <table class="table" id="table__group-detail">
+                <thead class="thead-dark">
+                    <tr>
+                        <th><input id="all-check" type="checkbox"></th>
+                        <th>NO</th>
+                        <th>No. Manifest</th>
+                        <th>Kapal</th>
+                        <th>Pelanggan</th>
+                        <th>No. Kontainer</th>
+                        <th>Tipe Kontainer</th>
+                        <th>Status</th>
+                        <th>Biaya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>test</th>
+                        <th>test</th>
+                        <th>test</th>
+                        <th>test</th>
+                        <th>test</th>
+                        <th>test</th>
+                        <th>test</th>
+                        <th>test</th>
+                        <th>test</th>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
         </div>
 
         {{-- Library JS --}}
-        <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        {{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> --}}
+
+        <script>
+            $(document).ready( function () {
+                $('table__group-detail').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    pageLength: 100,
+                    searching: false,
+                    dom: 'Bfrtip',
+                    ajax: {
+                        url : '/group/1',
+                    },
+                    columns: [
+                        { data: 'cost', name: 'cost' },
+                    ],
+                })
+            } );
+        </script>
     </body>
 </html>

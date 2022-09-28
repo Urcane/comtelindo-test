@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/group/{group}', [TestController::class, 'index'])->name('group.detail');
+
+Route::get('/group/{groupId}', [TestController::class, 'index'])->name('group.detail');
