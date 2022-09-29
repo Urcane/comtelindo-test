@@ -15,6 +15,10 @@ class CreateContactHasGroups extends Migration
     {
         Schema::create('contact_has_groups', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_contact');
+            $table->foreign('id_contact')->references('id')->on('contacts');
+            $table->unsignedBigInteger('id_group');
+            $table->foreign('id_group')->references('id')->on('groups');
             $table->timestamps();
         });
     }

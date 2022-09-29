@@ -42,7 +42,10 @@ class CreateOrReplaceContactGroupsViewCommand extends Command
 
         $query = "
             CREATE OR REPLACE VIEW contact_group_views AS (   
-                /* Put Your Code Here */
+                SELECT 
+                * 
+                FROM groups
+                WHERE id=$groupid
             )
         ";
 

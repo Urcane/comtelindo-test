@@ -19,3 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/group/{groupId}', [TestController::class, 'index'])->name('group.detail');
+
+Route::get('tes', function (){
+    return view('test2');
+});
+
