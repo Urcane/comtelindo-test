@@ -45,7 +45,7 @@ class CreateOrReplaceContactGroupsViewCommand extends Command
                 SELECT 
                 * 
                 FROM groups
-                WHERE id=$groupid
+                WHERE id = $groupid
             )
         ";
 
